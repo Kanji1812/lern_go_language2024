@@ -1,0 +1,153 @@
+Go-Language
+
+-> In the first video we are uderstand what is Go-Language and woh to Create .
+-> The Go is create by Google for the Webside and speed perpose .
+-> The Structure of the Go is Stric type Language Like C-Language,Lava etc.
+-> The go is have the some set of Command to use the run code and all.
+ *      Command(Go CLI)     *
+ -> How do we run the code in our project ?
+ 1.go build -> The use of the this command is to compile the file into Sourse file.
+ 2.go run -> THe use of this command is to compile and run the file at a time.
+ 3.go fmt -> Formats all the code in each file in the curent directory.
+ 4.go install -> Compile and Installs a Package.
+ 5.go get -> Downloads the raw sourse code of someone else's Package.
+ 6.go test -> runs any tests associalated with the current project. 
+
+ -> What dose 'Package main' mean ?
+ The meaning of 'Package' is one project or workspace . we have the one or more than one file with same Package name and the extantion is same '.go'.
+ ->What is "main" can we use the other name or note ?
+ The go is have the 2 types of Package.
+ 1.Executable : Gunrate a file that we can run.
+ 2.Reusable : Code used as 'helpers' good place to put reusable logic.
+
+ Video:10
+->what dose 'import fmt' means.
+    The import startment is use to get access the functionality who writen out side of the curunt code.
+    The name of other package in go : debug,math,encoding,main,fmt,crypto,Io 
+    The 'fmt' is a Standerd library
+video : 11(File Organization)
+->what's that 'func' thing?
+    The 'func' is stands for the funation , The work of func is same as a 'def' in python .
+    Sysntex : fun Name_of_Funaction(Argument){
+        //Code
+    }
+->How is the main.go file Organized?
+    Code :
+        package main //This is a Package declaration .
+
+        import "fmt" // import the Other Package that we need.
+        func main(){               // declaration of functions.tell Go to do things.
+            fmt.Println("Hi,Good moring")
+        }
+video:15 Variable declaration (file:variable.go)
+In the every programing Language the go is have the it's one datatype 
+    -> string , int , bool , float64 etc
+-> how to define the variable ?
+    we have the two ways to define the variable in the go 
+    1.First Way Syantax:
+        var variable_name data_Type = data or Value 
+    2.Second way Syantax (in this way the compiler is get the information automaticoly.) :
+        Variable_name := Value or Data
+    Code:
+    package main
+    import "fmt"
+    
+    func main() {
+    	// this is first way to create and asing the variable .
+    	var card string = "The Kanji is good Boy."
+    	// This is a second way to define the variable .
+    	card2 :="This is second way to declare the variable." 
+    	fmt.Println("This is use to define the variable .",card)
+    	fmt.Println(card2)
+        }
+    Note If we want to forgat and resing the same name with ':=' Simbole then we get Error-> no new variables on left side of :=
+video 16 : Funcation and return type. (variable.go)
+Funcation : The use of funation is to write it ones and use it ware ever .
+    Syantax:
+        func Funation_name() return_DType {
+            code
+            return "data"
+        }
+    code : 
+    func main(){
+        data : name()
+        fmt.Println("The name return is :",data)
+    }
+    func name() string{
+        return "my name is kanji."
+    }
+video 17: Slices and Loops (slaice.go)
+    In the go-Language we have the two basic data Strunture 
+    1.Array (Fixed length list of things)
+    2.Slice (An Array that can grow or shrink)
+    Syantax of Slicing :
+        Variable_name := [] data_Type {Value}
+    Sysntex of Foor Loop :
+        for Index,Local_Variable := range Slice {
+            //Print code or Statments.
+        }
+    code : In this code i try to add my friend's name and retrive the data with for Loop .
+    func main(){
+        friends := []string {"Harsh" , new_friend()}
+        friends = append("Harit",friend)
+        //This is For Loop
+        for index , friend := range friends{
+            fmt.Println(index,friend)
+        }
+    }
+    func new_friend() string{
+        return "Poojan"
+    }
+    Output :
+    0 Harit
+    1 Poojan
+    2 Harsh
+video 18:(OO Approach vs Go Approach)
+    The Go-Language is not a Object-Orianted Language(OOps).
+    -> in the next video we simpale ake the on mini-project, with three basic file.
+    1.main.go : Code to Create and manipulate a deck .
+    2. deck.go : Code that describes what a deck is and how it works
+    3.deck_test.go : Code to automaticoly test the deck.
+video 20 : Custome type declaration
+    In the opps we are create the object in the go language we simpale use to define the same behaviyar with using the 'type' keyword.
+    Sysntex : after this the name_of_Variable is rect as the Slice of string.
+        type name_of_Variable [] string 
+    code:(main.go)
+        func main(){
+        	// This is ause to define the array in go Langyage 
+        	// card := []string {"Poojan", new_friend()}
+        	// we are replase the []string to new create datatype call deck in kanji.go file 
+        	card := deck{"Poojan", new_friend()}
+        	card = append(card,"harit")
+        	for i , item := range card{
+        		fmt.Println(i,item)
+        	}
+        }
+        func new_friend()string{
+        	return "Harsh"
+        }
+    code :(deck.go)
+        type deck []string
+    code of Command :
+    go run main.go second_file.for
+    -> The Output is same as privyash.
+    
+    video21 : Creating newDeck 
+    In this code i simple lern to use the for lop gow to avoid the not useble variable with '_' .
+    code : video21.go
+        func main(){
+        	cards:= NewDack()
+        	fmt.Println(cards)
+        }
+    func NewDack() deck{
+    	cards:= deck{}
+    	cardSuits := []string{"Spandes","Dimonds","Hearts","one","two","mita","harsh","hita","harit","Om","poojan"}
+    	cardValue := []string {"one","two","three","foure","Five"}
+    	for _ , shout := range cardSuits{
+    		for _ , value := range cardValue{
+    			cards = append(cards,"The Shot is : "+shout+"The Value of value is : "+value)
+    		}
+    	}
+    	return cards
+    }
+    Note : This code is used to implement the nested loop in go with the claice datatype.
